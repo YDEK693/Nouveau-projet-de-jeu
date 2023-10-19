@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c57qokskogcjc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cou13"]
+size = Vector2(102.062, 304.464)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ndjp5"]
+
+[node name="Bloc" type="StaticBody2D" groups=["Sol"]]
+position = Vector2(232, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(0.788672, -1.10358)
+shape = SubResource("RectangleShape2D_cou13")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(-75.3957, 331.742)
+mesh = SubResource("BoxMesh_ndjp5")

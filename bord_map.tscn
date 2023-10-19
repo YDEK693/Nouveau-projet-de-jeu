@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://do4hgliqwl4mj"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gm0xe"]
+b = Vector2(-1.19209e-07, 2.26938)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g0h2s"]
+
+[node name="BordMap" type="Node2D"]
+
+[node name="Sol" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sol"]
+position = Vector2(576, 640)
+scale = Vector2(384.326, 7.05038)
+shape = SubResource("SegmentShape2D_gm0xe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Sol"]
+position = Vector2(575.334, 648)
+scale = Vector2(-575.163, 1)
+mesh = SubResource("PlaneMesh_g0h2s")
+
+[node name="MurGauche" type="StaticBody2D" parent="."]
+position = Vector2(648, -32)
+rotation = 1.5708
+scale = Vector2(0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MurGauche"]
+position = Vector2(576, 640)
+scale = Vector2(384.326, 7.05038)
+shape = SubResource("SegmentShape2D_gm0xe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MurGauche"]
+position = Vector2(575.334, 648)
+scale = Vector2(-575.163, 1)
+mesh = SubResource("PlaneMesh_g0h2s")
+
+[node name="MurDroit" type="StaticBody2D" parent="."]
+position = Vector2(1800, -32)
+rotation = 1.5708
+scale = Vector2(0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MurDroit"]
+position = Vector2(576, 640)
+scale = Vector2(384.326, 7.05038)
+shape = SubResource("SegmentShape2D_gm0xe")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MurDroit"]
+position = Vector2(575.334, 648)
+scale = Vector2(-575.163, 1)
+mesh = SubResource("PlaneMesh_g0h2s")

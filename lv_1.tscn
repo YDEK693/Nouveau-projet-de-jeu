@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctwgp72e7nx1o"]
+
+[ext_resource type="PackedScene" uid="uid://do4hgliqwl4mj" path="res://bord_map.tscn" id="1_weaxy"]
+[ext_resource type="PackedScene" uid="uid://c57qokskogcjc" path="res://bloc.tscn" id="2_d4j6x"]
+[ext_resource type="PackedScene" uid="uid://dq81g3v44sktl" path="res://testi.tscn" id="3_607dv"]
+
+[node name="Lv1" type="Node2D"]
+position = Vector2(-392, -232)
+
+[node name="BordMap" parent="." instance=ExtResource("1_weaxy")]
+position = Vector2(392, 240)
+
+[node name="Bloc" parent="." groups=["Bordure"] instance=ExtResource("2_d4j6x")]
+position = Vector2(952, 760)
+scale = Vector2(16.5291, 0.839374)
+
+[node name="Testi" parent="." instance=ExtResource("3_607dv")]
+position = Vector2(424, 592)
