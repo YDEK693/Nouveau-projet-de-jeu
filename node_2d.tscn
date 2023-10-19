@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://0vlrpo1q8vgk"]
+
+[ext_resource type="PackedScene" uid="uid://btxhdegj5rcdi" path="res://level.tscn" id="1_ir05i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5gsf"]
+albedo_color = Color(0.254902, 0.0745098, 0.866667, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_g8tpk"]
+material = SubResource("StandardMaterial3D_e5gsf")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ehk3"]
+radius = 22.8113
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(44, -540)
+
+[node name="MeshInstance2D" parent="." instance=ExtResource("1_ir05i")]
+
+[node name="Boule" type="RigidBody2D" parent="."]
+position = Vector2(46, 332)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Boule"]
+position = Vector2(57, 41.25)
+scale = Vector2(120, 120)
+mesh = SubResource("SphereMesh_g8tpk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boule"]
+position = Vector2(56.9717, 41)
+scale = Vector2(2.6, 2.6)
+shape = SubResource("CircleShape2D_0ehk3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1102, -107)
+zoom = Vector2(0.5, 0.5)
