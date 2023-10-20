@@ -5,7 +5,7 @@ b = Vector2(-1.19209e-07, 2.26938)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g0h2s"]
 
-[node name="BordMap" type="Node2D"]
+[node name="BordMap" type="Node2D" groups=["BordMap"]]
 
 [node name="Sol" type="StaticBody2D" parent="."]
 

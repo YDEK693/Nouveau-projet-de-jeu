@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4e0t2rqg02v3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_algm1"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_stqfv"]
+a = Vector2(0, -1.8)
+b = Vector2(0, 2.1084)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["Sol"]]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, 0.9)
+scale = Vector2(17.04, 0.5)
+mesh = SubResource("BoxMesh_algm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.9)
+scale = Vector2(5.76, 0.226411)
+shape = SubResource("SegmentShape2D_stqfv")

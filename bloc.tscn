@@ -1,18 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c57qokskogcjc"]
+[gd_scene load_steps=4 format=3 uid="uid://c57qokskogcjc"]
+
+[ext_resource type="PackedScene" uid="uid://c4e0t2rqg02v3" path="res://sol.tscn" id="1_tprr1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cou13"]
-size = Vector2(102.062, 304.464)
+size = Vector2(97.5936, 395.824)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ndjp5"]
 
-[node name="Bloc" type="StaticBody2D" groups=["Sol"]]
+[node name="Bloc" type="StaticBody2D"]
 position = Vector2(232, 400)
+scale = Vector2(1.70357, 0.364626)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.05176e-05, 0)
-scale = Vector2(0.788672, -1.10358)
+[node name="CGlobla" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5.72009)
+scale = Vector2(0.767, 0.831)
 shape = SubResource("RectangleShape2D_cou13")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(-75.3957, 331.742)
+[node name="Global" type="MeshInstance2D" parent="."]
+scale = Vector2(-74.0632, 338.729)
 mesh = SubResource("BoxMesh_ndjp5")
+
+[node name="Sol" parent="." instance=ExtResource("1_tprr1")]
+position = Vector2(0, -171.684)
+scale = Vector2(4.349, 0.999)
