@@ -10,7 +10,6 @@ scale = Vector2(0.953187, 1.00038)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(763.754, 403.437)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wf2w1")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
