@@ -1,14 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbtqt7r8px3ev"]
+[gd_scene load_steps=8 format=3 uid="uid://dmgy0mi3ypisr"]
 
-[ext_resource type="Script" path="res://button.gd" id="1_crrxy"]
-[ext_resource type="Texture2D" uid="uid://bs0tsnnsadkt1" path="res://images/Pressed.png" id="2_1i43g"]
-[ext_resource type="Texture2D" uid="uid://cxtsb54b120q4" path="res://images/notPressed.png" id="3_wppg8"]
+[ext_resource type="Texture2D" uid="uid://bs0tsnnsadkt1" path="res://images/Pressed.png" id="1_04d7n"]
+[ext_resource type="Script" path="res://button.gd" id="1_gdf1a"]
+[ext_resource type="Texture2D" uid="uid://cxtsb54b120q4" path="res://images/notPressed.png" id="2_ch3il"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p41h8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_1i43g")
+"texture": ExtResource("1_04d7n")
 }],
 "loop": true,
 "name": &"down",
@@ -16,7 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_wppg8")
+"texture": ExtResource("2_ch3il")
 }],
 "loop": true,
 "name": &"up",
@@ -26,27 +26,32 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8p38"]
 size = Vector2(85, 8)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u14dd"]
-size = Vector2(21.1379, 20)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gwtw"]
+size = Vector2(58, 7)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_36jqp"]
+a = Vector2(-84, 7)
+b = Vector2(-26, 7)
 
 [node name="Button" type="StaticBody2D"]
-script = ExtResource("1_crrxy")
+script = ExtResource("1_gdf1a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p41h8")
 animation = &"up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 6)
-scale = Vector2(1.06627, 1.55662)
+position = Vector2(-55.5, 19)
 shape = SubResource("RectangleShape2D_g8p38")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-55, 11.5)
+shape = SubResource("RectangleShape2D_1gwtw")
 
 [node name="TopChecker" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
-position = Vector2(2, -4)
-scale = Vector2(2.87307, 0.491786)
-shape = SubResource("RectangleShape2D_u14dd")
+shape = SubResource("SegmentShape2D_36jqp")
 
 [connection signal="body_entered" from="TopChecker" to="." method="_on_top_checker_body_entered"]
 [connection signal="body_exited" from="TopChecker" to="." method="_on_top_checker_body_exited"]

@@ -9,10 +9,10 @@ size = Vector2(402.859, 145.126)
 scale = Vector2(0.953187, 1.00038)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(763.754, 403.437)
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wf2w1")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(764.278, 402.651)
+position = Vector2(1, 1)
 scale = Vector2(403.908, 147.552)
 mesh = SubResource("BoxMesh_gclji")

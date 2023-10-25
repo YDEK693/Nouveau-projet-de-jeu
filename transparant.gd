@@ -13,9 +13,11 @@ func _process(delta):
 
 func _on_button_button_pushed():
 	set_collision_layer_value(1,true);
+	visible = true
 
 	
 
 
 func _on_button_button_off_pushed():
 	set_collision_layer_value(1,false);
+	visible = false

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8twaku4q50jx"]
+
+[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_x4eke"]
+[ext_resource type="Texture2D" uid="uid://c0l6fgeoyyej3" path="res://images/boule.png" id="2_psy5e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cpf1"]
+radius = 42.107
+
+[node name="Boule" type="CharacterBody2D" groups=["Object"]]
+script = ExtResource("1_x4eke")
+
+[node name="CollisionBoule" type="CollisionShape2D" parent="."]
+scale = Vector2(1.1, 1)
+shape = SubResource("CircleShape2D_2cpf1")
+
+[node name="SpriteBoule" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("2_psy5e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
