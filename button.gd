@@ -2,6 +2,7 @@ extends StaticBody2D
 
 var onButton := false
 signal buttonPushed
+signal buttonOffPushed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -14,6 +15,7 @@ func _process(delta):
 		emit_signal("buttonPushed")
 	else:
 		$AnimatedSprite2D.play("up")
+		emit_signal("buttonOffPushed")
 
 func _on_top_checker_body_entered(body):
 	if body.is_in_group("Object"):
