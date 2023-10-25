@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://btxhdegj5rcdi"]
+
+[ext_resource type="PackedScene" uid="uid://bu24eris8rodm" path="res://sol.tscn" id="1_sn3ct"]
+[ext_resource type="PackedScene" uid="uid://b1f6yv7qk8haq" path="res://mur.tscn" id="2_8rheo"]
+
+[node name="MeshInstance2D" type="MeshInstance2D"]
+
+[node name="Sol" parent="." instance=ExtResource("1_sn3ct")]
+position = Vector2(138, 510)
+
+[node name="Mur" parent="." instance=ExtResource("2_8rheo")]
+position = Vector2(-3, 3)
+
+[node name="Mur2" parent="." instance=ExtResource("2_8rheo")]
+position = Vector2(3256, 1)
+
+[node name="Sol2" parent="." instance=ExtResource("1_sn3ct")]
+position = Vector2(137, -1873)
