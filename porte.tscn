@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://q5kjvmfe841m"]
+
+[ext_resource type="Script" path="res://0.gd" id="1_3wkdt"]
+[ext_resource type="Texture2D" uid="uid://cq5s02rjipwif" path="res://images/Porte.png" id="2_xxeex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhv4a"]
+size = Vector2(62, 53)
+
+[node name="Porte" type="Area2D"]
+position = Vector2(401, 377)
+script = ExtResource("1_3wkdt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
+scale = Vector2(-1.12638, 2.58051)
+shape = SubResource("RectangleShape2D_nhv4a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xxeex")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

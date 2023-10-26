@@ -25,3 +25,4 @@ func _on_top_checker_body_entered(body):
 func _on_top_checker_body_exited(body):
 	if body.is_in_group("Object"):
 		onButton = false
+
