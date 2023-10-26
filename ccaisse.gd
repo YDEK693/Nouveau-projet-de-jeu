@@ -11,4 +11,4 @@ func go_next_stage():
 	get_tree().change_scene("res://Scenes/Levels/Level "+str(current_stage)+".xml")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	
