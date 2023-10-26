@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bi55brnecwkc0"]
+
+[ext_resource type="PackedScene" uid="uid://btxhdegj5rcdi" path="res://level.tscn" id="1_dsc6c"]
+[ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://plateforme.tscn" id="2_mt4gi"]
+[ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://porte.tscn" id="3_7n8dl"]
+[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://boule.tscn" id="4_tnioj"]
+
+[node name="Tuto" type="Node2D"]
+position = Vector2(33, -527)
+
+[node name="MeshInstance2D" parent="." instance=ExtResource("1_dsc6c")]
+position = Vector2(-20, -9)
+
+[node name="Plateforme" parent="." instance=ExtResource("2_mt4gi")]
+position = Vector2(183, -14)
+
+[node name="Porte" parent="." instance=ExtResource("3_7n8dl")]
+
+[node name="Boule" parent="." instance=ExtResource("4_tnioj")]
+position = Vector2(352, 412)
