@@ -21,7 +21,14 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		set_script("res://CharacterBody2D2.gd")
+		var new_script = preload("res://CharacterBody2D2.gd")
+		self.set_script(new_script)
+		
+		#var script = GDScript.new()
+		#script.set_source_code(rb_script());
+		#script.reload()
+		
+		#self.set_script(script);
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
