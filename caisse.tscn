@@ -8,6 +8,7 @@ size = Vector2(95.3049, 95.2747)
 
 [node name="Caisse" type="RigidBody2D" groups=["Object"]]
 position = Vector2(37, -50)
+mass = 1.2
 lock_rotation = true
 script = ExtResource("1_71r75")
 

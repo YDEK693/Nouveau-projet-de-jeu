@@ -14,7 +14,8 @@ scale = Vector2(1.1, 1)
 shape = SubResource("CircleShape2D_2cpf1")
 
 [node name="SpriteBoule" type="Sprite2D" parent="."]
-position = Vector2(3, 0)
+position = Vector2(0, -2)
+scale = Vector2(0.30299, 0.282038)
 texture = ExtResource("2_psy5e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
