@@ -1,4 +1,5 @@
-extends StaticBody2D
+extends RigidBody2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,13 +11,8 @@ func _process(delta):
 	pass
 
 
-func _on_button_button_pushed():
-	set_collision_layer_value(1,true);
-	visible = true
-
-	
-
-
-func _on_button_button_off_pushed():
-	set_collision_layer_value(1,false);
-	visible = false
+func _on_body_entered(body):
+	if body.is_in_group("Object"):
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		print(current_scene_file)
+		
