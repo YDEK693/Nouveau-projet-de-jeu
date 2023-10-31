@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://2kji58caecc5"]
+[gd_scene load_steps=18 format=3 uid="uid://2kji58caecc5"]
 
 [ext_resource type="PackedScene" uid="uid://btxhdegj5rcdi" path="res://level.tscn" id="1_dsc6c"]
 [ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://plateforme.tscn" id="2_mt4gi"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://ccaisse.gd" id="4_xogtc"]
 [ext_resource type="Texture2D" uid="uid://cttyo2fb0mm7q" path="res://images/caisse.png" id="5_u7cc3"]
 [ext_resource type="Script" path="res://transparant.gd" id="6_bq0b8"]
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="7_gm65u"]
+[ext_resource type="Script" path="res://defaultBall.gd" id="7_nhr2i"]
 [ext_resource type="Texture2D" uid="uid://c0l6fgeoyyej3" path="res://images/boule.png" id="8_0tdau"]
 [ext_resource type="PackedScene" uid="uid://bdbx50ekgqq32" path="res://level_change.tscn" id="9_056xk"]
 [ext_resource type="PackedScene" uid="uid://bsfr8p2tpmd1k" path="res://moving_platform.tscn" id="10_ajbur"]
@@ -22,8 +22,11 @@ size = Vector2(328, 132)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cpf1"]
 radius = 42.107
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebbpj"]
+radius = 40.4475
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8sk4o"]
-a = Vector2(924, 124)
+a = Vector2(928, 3)
 b = Vector2(1, -8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_p0fed"]
@@ -41,7 +44,7 @@ position = Vector2(224, -4)
 position = Vector2(533, 461)
 
 [node name="Caisse" type="RigidBody2D" parent="." groups=["Object", "Poussable"]]
-position = Vector2(438, -108)
+position = Vector2(268, 30)
 mass = 4.22
 max_contacts_reported = 1
 contact_monitor = true
@@ -73,12 +76,12 @@ scale = Vector2(333, 135.5)
 mesh = SubResource("BoxMesh_8dfqt")
 
 [node name="Boule" type="CharacterBody2D" parent="." groups=["Object"]]
-position = Vector2(1137, 468)
+position = Vector2(965, 481)
 floor_block_on_wall = false
-script = ExtResource("7_gm65u")
+script = ExtResource("7_nhr2i")
 
 [node name="CollisionBoule" type="CollisionShape2D" parent="Boule"]
-position = Vector2(-184, -200)
+position = Vector2(-182, -200)
 shape = SubResource("CircleShape2D_2cpf1")
 
 [node name="SpriteBoule" type="Sprite2D" parent="Boule"]
@@ -86,27 +89,33 @@ position = Vector2(-69, -19)
 scale = Vector2(0.983507, 1.1034)
 texture = ExtResource("8_0tdau")
 
+[node name="Area2D" type="Area2D" parent="Boule"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boule/Area2D"]
+position = Vector2(-184, -199)
+shape = SubResource("CircleShape2D_ebbpj")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1103, -107)
 zoom = Vector2(0.5, 0.5)
 
 [node name="LevelChange" parent="." instance=ExtResource("9_056xk")]
 
-[node name="MovingPlatform" parent="." groups=["platforme"] instance=ExtResource("10_ajbur")]
-position = Vector2(194, 42)
+[node name="MovingPlatform" parent="." groups=["Platform"] instance=ExtResource("10_ajbur")]
+position = Vector2(416, 309)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(924, 309)
+position = Vector2(924, 284)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(215, 22)
+position = Vector2(219, 84)
 shape = SubResource("SegmentShape2D_8sk4o")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(681, 94)
-rotation = 0.118682
-scale = Vector2(924, 40)
+position = Vector2(682.86, 71.2218)
+scale = Vector2(927.746, 40)
 mesh = SubResource("BoxMesh_p0fed")
 
 [connection signal="buttonOffPushed" from="Button" to="transparant" method="_on_button_button_off_pushed"]
 [connection signal="buttonPushed" from="Button" to="transparant" method="_on_button_button_pushed"]
+[connection signal="body_entered" from="Boule/Area2D" to="Boule" method="_on_area_2d_body_entered"]

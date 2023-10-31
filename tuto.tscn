@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://ccaisse.gd" id="4_qegb3"]
 [ext_resource type="Texture2D" uid="uid://cttyo2fb0mm7q" path="res://images/caisse.png" id="5_6c83n"]
 [ext_resource type="Script" path="res://transparant.gd" id="6_mtw3f"]
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="7_jt3hi"]
+[ext_resource type="Script" path="res://defaultBall.gd" id="7_jt3hi"]
 [ext_resource type="Texture2D" uid="uid://c0l6fgeoyyej3" path="res://images/boule.png" id="8_0epng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjtt5"]

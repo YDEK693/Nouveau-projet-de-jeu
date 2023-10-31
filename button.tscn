@@ -34,6 +34,7 @@ a = Vector2(-84, 7)
 b = Vector2(-26, 7)
 
 [node name="Button" type="StaticBody2D"]
+visible = false
 script = ExtResource("1_gdf1a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
