@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://2kji58caecc5"]
+[gd_scene load_steps=19 format=3 uid="uid://2kji58caecc5"]
 
 [ext_resource type="PackedScene" uid="uid://btxhdegj5rcdi" path="res://level.tscn" id="1_dsc6c"]
 [ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://plateforme.tscn" id="2_mt4gi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c0l6fgeoyyej3" path="res://images/boule.png" id="8_0tdau"]
 [ext_resource type="PackedScene" uid="uid://bdbx50ekgqq32" path="res://level_change.tscn" id="9_056xk"]
 [ext_resource type="PackedScene" uid="uid://bsfr8p2tpmd1k" path="res://moving_platform.tscn" id="10_ajbur"]
+[ext_resource type="Script" path="res://kill.gd" id="10_mp1fn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjtt5"]
 size = Vector2(92.25, 98.5)
@@ -38,7 +39,7 @@ position = Vector2(33, -527)
 position = Vector2(-20, -9)
 
 [node name="Plateforme" parent="." instance=ExtResource("2_mt4gi")]
-position = Vector2(224, -4)
+position = Vector2(238, 8)
 
 [node name="Button" parent="." instance=ExtResource("3_508s0")]
 position = Vector2(533, 461)
@@ -100,9 +101,11 @@ position = Vector2(1103, -107)
 zoom = Vector2(0.5, 0.5)
 
 [node name="LevelChange" parent="." instance=ExtResource("9_056xk")]
+position = Vector2(220, 360)
+script = ExtResource("10_mp1fn")
 
 [node name="MovingPlatform" parent="." groups=["Platform"] instance=ExtResource("10_ajbur")]
-position = Vector2(416, 309)
+position = Vector2(490, 322)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(924, 284)
