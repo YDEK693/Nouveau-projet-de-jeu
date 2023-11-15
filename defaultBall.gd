@@ -44,7 +44,11 @@ func _physics_process(delta):
 			
 	else:	
 		velocity.y += gravity * delta	
-		move_and_slide()
+	if(is_on_floor()):
+		print('flor')
+		velocity.y = JUMP_VELOCITY*2
+	
+	move_and_slide()
 		
 	if Input.is_action_just_pressed("ui_focus_next"):
 		if current_state == State.DEFAULT:
