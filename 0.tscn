@@ -76,7 +76,7 @@ scale = Vector2(333, 135.5)
 mesh = SubResource("BoxMesh_8dfqt")
 
 [node name="Boule" type="CharacterBody2D" parent="." groups=["Object"]]
-position = Vector2(965, 481)
+position = Vector2(1041, 483)
 floor_block_on_wall = false
 script = ExtResource("7_nhr2i")
 
@@ -102,19 +102,22 @@ zoom = Vector2(0.5, 0.5)
 [node name="LevelChange" parent="." instance=ExtResource("9_056xk")]
 
 [node name="MovingPlatform" parent="." groups=["Platform"] instance=ExtResource("10_ajbur")]
-position = Vector2(416, 309)
+position = Vector2(644, 241)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(924, 284)
+position = Vector2(930, 288)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(219, 84)
 shape = SubResource("SegmentShape2D_8sk4o")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(682.86, 71.2218)
+position = Vector2(686, 61)
 scale = Vector2(927.746, 40)
 mesh = SubResource("BoxMesh_p0fed")
+
+[node name="Plateforme2" parent="." instance=ExtResource("2_mt4gi")]
+position = Vector2(59, -487)
 
 [connection signal="buttonOffPushed" from="Button" to="transparant" method="_on_button_button_off_pushed"]
 [connection signal="buttonPushed" from="Button" to="transparant" method="_on_button_button_pushed"]
