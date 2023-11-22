@@ -28,7 +28,10 @@ func _physics_process(delta):
 #		velocity.y += JUMP_VELOCITY*2
 
 	move_and_slide()
-
+	#restart level à definir la touche
+	if Input.is_action_just_pressed("ui_focus_next"):
+		var current_scene_file = get_tree().current_scene.scene_file_path
+		get_tree().change_scene_to_file(current_scene_file)
 	#changer de transformation
 	if Input.is_action_just_pressed("ui_focus_next"):
 		current_state = DEPLOQUER[(current_state + 1) % len(DEPLOQUER)]
