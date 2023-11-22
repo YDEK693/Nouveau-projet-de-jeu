@@ -12,7 +12,7 @@ enum State {
 	TENNIS = 1,
 }
 
-var DEPLOQUER = [State.DEFAULT, State.TENNIS]
+var DEPLOQUER = [State.DEFAULT]
 var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150, State.TENNIS: 300.0}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
 
@@ -29,7 +29,7 @@ func _physics_process(delta):
 #	if(velocity.y>0 && is_on_floor()):
 #		velocity.y += JUMP_VELOCITY*2
 
-	move_and_slide()
+	
 	#restart level à definir la touche
 	if Input.is_action_just_pressed("Reset"):
 		var current_scene_file = get_tree().current_scene.scene_file_path
@@ -50,14 +50,20 @@ func _physics_process(delta):
 	#push caisse
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() is AnimatableBody2D:
-			if c.get_collider().position.x > 490:
-				sens = -1 
-			if c.get_collider().position.x < 10:
-				sens = 1
-		if c.get_collider()is RigidBody2D:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+		if c.get_collider() !=null:
+			if c.get_collider().name == "UnlockerTennis":
+				if State.TENNIS not in DEPLOQUER:
+					DEPLOQUER.append(State.TENNIS)
+					print(len(DEPLOQUER))
+			if c.get_collider() is AnimatableBody2D:
+				if c.get_collider().position.x > 490:
+					sens = -1 
+				if c.get_collider().position.x < 10:
+					sens = 1
+			if c.get_collider()is RigidBody2D:
+				c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	#deplacement
+	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -65,8 +71,6 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	#moving plateforme
 	if current_state == State.STICKY:
 #		if(is_on_ceiling()):
 #			velocity.y = 0
@@ -76,12 +80,15 @@ func _physics_process(delta):
 #			velocity.x = 500*sens;
 		if(is_on_ceiling()||is_on_wall()):
 			velocity.x = 200*sens;
+			velocity.y = 0;
 		else:
 			velocity.y += gravity * delta
 
 	else:	
 		velocity.y += gravity * delta	
-
+	#moving plateforme
+	
+	move_and_slide()
 	
 # if needed for bouncing of walls or ceilings
 #var was_on_wall := false
