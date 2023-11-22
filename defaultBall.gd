@@ -7,10 +7,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sens = 1 
 # Création d'une énumération pour les états
 enum State {
-	DEFAULT,
-	STICKY,
+	DEFAULT = 0,
+	STICKY = 1,
 }
-
+var DEPLOQUER = [State.DEFAULT, State.STICKY]
 var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200}
 
@@ -29,12 +29,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+	#changer de transformation
 	if Input.is_action_just_pressed("ui_focus_next"):
-		if current_state == State.DEFAULT:
-			current_state = State.STICKY
-		else:
-			current_state = State.DEFAULT
-	
+		current_state = DEPLOQUER[(current_state + 1) % len(DEPLOQUER)]
+		if current_state == State.STICKY:
+			$CollisionBoule.shape.radius = 10
+			#$AnimatedSpriteBoule.play("sticky")
+		elif current_state == State.DEFAULT:
+			$CollisionBoule.shape.radius = 42.11
+			#$AnimatedSpriteBoule.play("default")
+		
 	#push caisse
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
@@ -43,19 +47,18 @@ func _physics_process(delta):
 				sens = -1 
 			if c.get_collider().position.x < 10:
 				sens = 1
-			
+	
+	#deplacement
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-
+	#moving plateforme
 	if current_state == State.STICKY:
-		print(is_on_ceiling(),is_on_wall())
 #		if(is_on_ceiling()):
 #			velocity.y = 0
 #			velocity.x = 400*sens;
