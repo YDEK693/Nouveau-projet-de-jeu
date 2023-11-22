@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://defaultBall.gd" id="7_nhr2i"]
 [ext_resource type="Texture2D" uid="uid://c0l6fgeoyyej3" path="res://images/boule.png" id="8_0tdau"]
 [ext_resource type="PackedScene" uid="uid://bdbx50ekgqq32" path="res://level_change.tscn" id="9_056xk"]
-[ext_resource type="PackedScene" uid="uid://bsfr8p2tpmd1k" path="res://moving_platform.tscn" id="10_ajbur"]
+[ext_resource type="PackedScene" uid="uid://q00h3k215cfy" path="res://moving_platform.tscn" id="10_ajbur"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjtt5"]
 size = Vector2(92.25, 98.5)
