@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkc8ad4bwwgqx"]
+
+[ext_resource type="Texture2D" uid="uid://cfgcyp8na8kbt" path="res://images/TransfoTennis.png" id="1_ko28l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ia7r2"]
+size = Vector2(17.5424, 17.6264)
+
+[sub_resource type="QuadMesh" id="QuadMesh_ag6qu"]
+
+[node name="UnlockerTennis" type="RigidBody2D"]
+position = Vector2(-32, 37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.49012e-08)
+scale = Vector2(2.94696, 3.12376)
+shape = SubResource("RectangleShape2D_ia7r2")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(-59.1665, -55.19)
+mesh = SubResource("QuadMesh_ag6qu")
+texture = ExtResource("1_ko28l")

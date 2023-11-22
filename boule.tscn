@@ -7,13 +7,14 @@
 radius = 42.107
 
 [node name="Boule" type="CharacterBody2D" groups=["Object"]]
+safe_margin = 0.001
 script = ExtResource("1_x4eke")
 
 [node name="CollisionBoule" type="CollisionShape2D" parent="."]
-scale = Vector2(1.1, 1)
+scale = Vector2(1.0328, 0.979136)
 shape = SubResource("CircleShape2D_2cpf1")
 
-[node name="SpriteBoule" type="Sprite2D" parent="."]
+[node name="SpriteClassique" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
 scale = Vector2(0.30299, 0.282038)
 texture = ExtResource("2_psy5e")

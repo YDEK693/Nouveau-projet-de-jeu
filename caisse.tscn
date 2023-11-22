@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cttyo2fb0mm7q" path="res://images/caisse.png" id="2_yj1i5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjtt5"]
-size = Vector2(95.3049, 95.2747)
+size = Vector2(89.6465, 90.5771)
 
 [node name="Caisse" type="RigidBody2D" groups=["Object"]]
 position = Vector2(37, -50)
 mass = 1.2
+continuous_cd = 2
 lock_rotation = true
 script = ExtResource("1_71r75")
 
@@ -18,6 +19,6 @@ scale = Vector2(1.001, 1.14985)
 texture = ExtResource("2_yj1i5")
 
 [node name="CollisionCaisse" type="CollisionShape2D" parent="."]
-position = Vector2(1, 6)
+position = Vector2(0.500004, 7.5)
 scale = Vector2(0.792, 0.717621)
 shape = SubResource("RectangleShape2D_xjtt5")
