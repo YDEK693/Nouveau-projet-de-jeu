@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cnjrgpwgyi86e" path="res://images/Tennis.png" id="4_xnuph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cpf1"]
-radius = 42.107
+radius = 30.4468
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8fvy2"]
 animations = [{
@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [node name="Boule" type="CharacterBody2D" groups=["Object"]]
-safe_margin = 0.001
+floor_block_on_wall = false
 script = ExtResource("1_x4eke")
 
 [node name="CollisionBoule" type="CollisionShape2D" parent="."]
@@ -46,5 +46,7 @@ shape = SubResource("CircleShape2D_2cpf1")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSpriteBoule" type="AnimatedSprite2D" parent="."]
+position = Vector2(17, 3)
+scale = Vector2(0.217285, 0.24728)
 sprite_frames = SubResource("SpriteFrames_8fvy2")
 animation = &"sticky"

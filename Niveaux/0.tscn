@@ -18,3 +18,4 @@ position = Vector2(183, -14)
 
 [node name="Boule" parent="." instance=ExtResource("4_tnioj")]
 position = Vector2(352, 412)
+floor_block_on_wall = false

@@ -48,10 +48,10 @@ scale = Vector2(0.759049, 2.65227)
 script = ExtResource("3_a1pln")
 
 [node name="Boule" parent="." instance=ExtResource("3_rs8ph")]
-position = Vector2(262, -891)
+position = Vector2(1461, -259)
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("5_h51sr")]
-position = Vector2(1460, -566)
+position = Vector2(265, -584)
 script = ExtResource("7_4rg5f")
 
 [node name="Porte" parent="." instance=ExtResource("6_m12b4")]
