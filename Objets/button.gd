@@ -18,11 +18,11 @@ func _process(delta):
 		emit_signal("buttonOffPushed")
 
 func _on_top_checker_body_entered(body):
-	if body.is_in_group("Object"):
+	if body.is_in_group("Object") || body.is_in_group("Character"):
 		onButton = true
 
 
 func _on_top_checker_body_exited(body):
-	if body.is_in_group("Object"):
+	if body.is_in_group("Object") || body.is_in_group("Character"):
 		onButton = false
 

@@ -35,7 +35,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Boule" type="CharacterBody2D" groups=["Object"]]
+[node name="Boule" type="CharacterBody2D" groups=["Character", "Object"]]
 floor_block_on_wall = false
 script = ExtResource("1_x4eke")
 
