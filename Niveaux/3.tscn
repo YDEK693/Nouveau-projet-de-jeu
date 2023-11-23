@@ -45,9 +45,6 @@ script = ExtResource("3_a1pln")
 [node name="Boule" parent="." instance=ExtResource("3_rs8ph")]
 position = Vector2(186, -44)
 
-[node name="UnlockerTennis" parent="." instance=ExtResource("4_s4eo2")]
-position = Vector2(1502, -220)
-
 [node name="MovingPlatform" parent="." instance=ExtResource("5_h51sr")]
 position = Vector2(1714, -181)
 
@@ -76,6 +73,10 @@ rotation = 1.5692
 scale = Vector2(1.48359, -1.90222)
 script = ExtResource("3_a1pln")
 
+[node name="UnlockerTennis" parent="." instance=ExtResource("4_s4eo2")]
+position = Vector2(1550, -230)
+mass = 29.73
+
 [connection signal="default" from="Boule" to="PorteAvion" method="_on_boule_default"]
 [connection signal="default" from="Boule" to="PorteAvion2" method="_on_boule_default"]
 [connection signal="default" from="Boule" to="PorteAvion3" method="_on_boule_default"]
@@ -91,3 +92,4 @@ script = ExtResource("3_a1pln")
 [connection signal="tennis" from="Boule" to="PorteAvion3" method="_on_boule_tennis"]
 [connection signal="tennis" from="Boule" to="PorteAvion4" method="_on_boule_tennis"]
 [connection signal="tennis" from="Boule" to="PorteAvion5" method="_on_boule_tennis"]
+[connection signal="body_entered" from="UnlockerTennis" to="UnlockerTennis" method="_on_body_entered"]

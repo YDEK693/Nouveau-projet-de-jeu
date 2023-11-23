@@ -24,3 +24,7 @@ func _on_boule_sticky():
 func _on_boule_tennis():
 	set_collision_layer_value(1,false);
 	visible = false
+
+
+func _on_unlocker_tennis_body_entered(body):
+	pass # Replace with function body.

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://btxhdegj5rcdi" path="res://Plateformes/level.tscn" id="1_dsc6c"]
 [ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://Plateformes/plateforme.tscn" id="2_mt4gi"]
 [ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://Objets/porte.tscn" id="3_7n8dl"]
-[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://boule.tscn" id="4_tnioj"]
+[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://Personnage/boule.tscn" id="4_tnioj"]
 
 [node name="Tuto" type="Node2D"]
 position = Vector2(33, -527)

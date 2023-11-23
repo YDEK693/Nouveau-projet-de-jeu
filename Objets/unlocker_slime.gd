@@ -1,9 +1,9 @@
 extends RigidBody2D
 
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	set_collision_layer_value(1,false);
-	visible = false
+	pass
 
 
 
@@ -14,12 +14,10 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.is_in_group("Object"):
-		body.addTennisTransformation()
+		body.addStickyTransformation()
 		visible = false
 		queue_free()
 
 
 
-func _on_button_button_pushed():
-	set_collision_layer_value(1,true);
-	visible = true
+

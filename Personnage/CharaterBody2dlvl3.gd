@@ -17,23 +17,18 @@ signal tennis
 signal default
 signal sticky 
 
-var DEPLOQUER = [State.DEFAULT]
+var DEPLOQUER = [State.DEFAULT, State.TENNIS]
 var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150, State.TENNIS: 300.0}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
 
 var current_state : State = State.DEFAULT
 func _ready():
 	$AnimatedSpriteBoule.play("default")
-	var current_scene_file = get_tree().current_scene.scene_file_path
-	var lvl3 = "res://Niveaux/3.tscn"
-	if(current_scene_file == lvl3):
-		var new_script = preload("res://Personnage/CharaterBody2dlvl3.gd")
-		self.set_script(new_script)
 
-func addTennisTransformation() : 
-	DEPLOQUER.append(State.TENNIS)
-	$AnimatedSpriteBoule.play("tennis")
-	current_state = State.TENNIS
+func addStickyTransformation() : 
+	DEPLOQUER.append(State.STICKY)
+	$AnimatedSpriteBoule.play("sticky")
+	current_state = State.STICKY
 func _physics_process(delta):
 	var SPEED = SPEEDDIC[current_state]
 	var JUMP_VELOCITY = JUMPDIC[current_state]
@@ -61,6 +56,11 @@ func _physics_process(delta):
 	#push caisse
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
+		if c.get_collider() is AnimatableBody2D:
+			if c.get_collider().position.x > 490:
+				sens = -1 
+			if c.get_collider().position.x < 10:
+				sens = 1
 		if c.get_collider()is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	#deplacement
@@ -73,8 +73,14 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	#moving plateforme
+	if current_state == State.STICKY:
+		if(is_on_ceiling()||is_on_wall()):
+			velocity.x = 200*sens;
+		else:
+			velocity.y += gravity * delta
 
-	velocity.y += gravity * delta	
+	else:	
+		velocity.y += gravity * delta	
 	move_and_slide()
 	
 # if needed for bouncing of walls or ceilings
