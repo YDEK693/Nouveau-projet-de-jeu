@@ -1,50 +1,50 @@
 [gd_scene load_steps=8 format=3 uid="uid://bw1y6t7mjigwr"]
 
-[ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://porte.tscn" id="1_s6kpk"]
-[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://boule.tscn" id="2_y0tq0"]
-[ext_resource type="PackedScene" uid="uid://cxoc05oqpljr1" path="res://caisse.tscn" id="3_s1nt7"]
-[ext_resource type="PackedScene" uid="uid://bbtqt7r8px3ev" path="res://button.tscn" id="4_adeuk"]
-[ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://plateforme.tscn" id="5_5486p"]
-[ext_resource type="PackedScene" uid="uid://cb0647x40xbsd" path="res://transparant.tscn" id="6_2kob0"]
-[ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="7_1edf0"]
+[ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://Objets/porte.tscn" id="1_d5dt2"]
+[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://Personnage/boule.tscn" id="2_74bmy"]
+[ext_resource type="PackedScene" uid="uid://cxoc05oqpljr1" path="res://Objets/caisse.tscn" id="3_q2pvy"]
+[ext_resource type="PackedScene" uid="uid://bbtqt7r8px3ev" path="res://Objets/button.tscn" id="4_eabcn"]
+[ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://Plateformes/plateforme.tscn" id="5_n688i"]
+[ext_resource type="PackedScene" uid="uid://cb0647x40xbsd" path="res://Plateformes/transparant.tscn" id="6_fuot1"]
+[ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="7_vjm8m"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Porte" parent="." instance=ExtResource("1_s6kpk")]
+[node name="Porte" parent="." instance=ExtResource("1_d5dt2")]
 position = Vector2(1873, 388)
 
-[node name="Boule" parent="." instance=ExtResource("2_y0tq0")]
+[node name="Boule" parent="." instance=ExtResource("2_74bmy")]
 position = Vector2(73, 579)
 
-[node name="Caisse" parent="." instance=ExtResource("3_s1nt7")]
+[node name="Caisse" parent="." instance=ExtResource("3_q2pvy")]
 position = Vector2(914, 470)
 scale = Vector2(0.997537, 0.988153)
 
-[node name="Button" parent="." instance=ExtResource("4_adeuk")]
+[node name="Button" parent="." instance=ExtResource("4_eabcn")]
 position = Vector2(993, 643)
 
-[node name="Plateforme" parent="." instance=ExtResource("5_5486p")]
+[node name="Plateforme" parent="." instance=ExtResource("5_n688i")]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(424, 616)
 scale = Vector2(0.498621, 0.538958)
 collision_layer = 2
 
-[node name="Plateforme2" parent="." instance=ExtResource("5_5486p")]
+[node name="Plateforme2" parent="." instance=ExtResource("5_n688i")]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(824, 600)
 scale = Vector2(0.639068, 1.19224)
 collision_layer = 2
 
-[node name="Plateforme3" parent="." instance=ExtResource("5_5486p")]
+[node name="Plateforme3" parent="." instance=ExtResource("5_n688i")]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(1470, 607)
 scale = Vector2(0.922991, 2.11418)
 collision_layer = 2
 
-[node name="transparant" parent="." instance=ExtResource("6_2kob0")]
+[node name="transparant" parent="." instance=ExtResource("6_fuot1")]
 light_mask = 2
 visibility_layer = 2
 position = Vector2(1377, 524)
@@ -55,7 +55,7 @@ collision_mask = 1
 light_mask = 2
 visibility_layer = 2
 position = Vector2(1, 0)
-tile_set = ExtResource("7_1edf0")
+tile_set = ExtResource("7_vjm8m")
 format = 2
 layer_0/name = "Background"
 layer_0/z_index = -1

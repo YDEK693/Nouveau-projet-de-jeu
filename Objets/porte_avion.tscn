@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0xp0b32ug36k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehmtr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iuv78"]
+
+[node name="PorteAvion" type="StaticBody2D"]
+modulate = Color(0.796078, 0.054902, 0.054902, 1)
+position = Vector2(-31, -30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(-1.97997, -2.86881)
+shape = SubResource("RectangleShape2D_ehmtr")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+scale = Vector2(-39.6393, -56.9697)
+mesh = SubResource("BoxMesh_iuv78")

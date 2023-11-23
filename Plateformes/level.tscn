@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://btxhdegj5rcdi"]
 
-[ext_resource type="PackedScene" uid="uid://bu24eris8rodm" path="res://sol.tscn" id="1_sn3ct"]
-[ext_resource type="PackedScene" uid="uid://b1f6yv7qk8haq" path="res://mur.tscn" id="2_8rheo"]
+[ext_resource type="PackedScene" uid="uid://bu24eris8rodm" path="res://Plateformes/sol.tscn" id="1_sn3ct"]
+[ext_resource type="PackedScene" uid="uid://b1f6yv7qk8haq" path="res://Plateformes/mur.tscn" id="2_8rheo"]
 
 [node name="MeshInstance2D" type="MeshInstance2D"]
 
