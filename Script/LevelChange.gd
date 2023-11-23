@@ -14,5 +14,4 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("Object"):
 		var current_scene_file = get_tree().current_scene.scene_file_path
-		print(current_scene_file)
 		

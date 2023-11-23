@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://blbuhewkrnnjy"]
+[gd_scene load_steps=11 format=3 uid="uid://blbuhewkrnnjy"]
 
 [ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="1_lt70d"]
 [ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://Personnage/boule.tscn" id="2_876oc"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cxoc05oqpljr1" path="res://Objets/caisse.tscn" id="4_eoo2e"]
 [ext_resource type="PackedScene" uid="uid://cb0647x40xbsd" path="res://Plateformes/transparant.tscn" id="6_mhyx5"]
 [ext_resource type="PackedScene" uid="uid://dkc8ad4bwwgqx" path="res://Objets/unlocker_tennis.tscn" id="7_q7qlu"]
-[ext_resource type="PackedScene" uid="uid://ckcrx4dewjm4h" path="res://Plateformes/moving_platform.tscn" id="8_a6q4p"]
+[ext_resource type="PackedScene" uid="uid://ckcrx4dewjm4h" path="res://Plateformes/MovingPlateforme/moving_platform.tscn" id="8_a6q4p"]
 [ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://Objets/porte.tscn" id="8_ispri"]
-[ext_resource type="PackedScene" uid="uid://dl4ns8lhyt7ao" path="res://killzone.tscn" id="9_ut8g6"]
+[ext_resource type="Script" path="res://Plateformes/MovingPlateforme/MovingPlatform.gd" id="9_38mjp"]
+[ext_resource type="PackedScene" uid="uid://dl4ns8lhyt7ao" path="res://Script/killzone.tscn" id="9_ut8g6"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -50,6 +51,7 @@ position = Vector2(3788, 353)
 [node name="MovingPlatform" parent="." instance=ExtResource("8_a6q4p")]
 position = Vector2(1610, 485)
 scale = Vector2(1.85652, 0.635862)
+script = ExtResource("9_38mjp")
 
 [node name="killzone" parent="." instance=ExtResource("9_ut8g6")]
 visible = false
