@@ -46,5 +46,5 @@ shape = SubResource("CircleShape2D_2cpf1")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSpriteBoule" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.278519, 0.269726)
 sprite_frames = SubResource("SpriteFrames_8fvy2")
-animation = &"sticky"

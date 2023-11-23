@@ -49,14 +49,20 @@ func _physics_process(delta):
 		current_state = DEPLOQUER[(current_state + 1) % len(DEPLOQUER)]
 		if current_state == State.STICKY:
 			$CollisionBoule.shape.radius = 42.11
+			$AnimatedSpriteBoule.scale.x = 0.279
+			$AnimatedSpriteBoule.scale.y = 0.27
 			$AnimatedSpriteBoule.play("sticky")
 			emit_signal("sticky")
 		elif current_state == State.DEFAULT:
 			$CollisionBoule.shape.radius = 42.11
+			$AnimatedSpriteBoule.scale.x = 0.279
+			$AnimatedSpriteBoule.scale.y = 0.27
 			$AnimatedSpriteBoule.play("default")
 			emit_signal("default")
 		elif current_state == State.TENNIS:
 			$CollisionBoule.shape.radius = 21.05
+			$AnimatedSpriteBoule.scale.x = 0.150
+			$AnimatedSpriteBoule.scale.y = 0.15
 			$AnimatedSpriteBoule.play("tennis")
 			emit_signal("tennis")
 	#push caisse

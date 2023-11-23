@@ -19,6 +19,7 @@ position = Vector2(73, 579)
 [node name="Caisse" parent="." instance=ExtResource("3_q2pvy")]
 position = Vector2(914, 470)
 scale = Vector2(0.997537, 0.988153)
+mass = 2.22
 
 [node name="Button" parent="." instance=ExtResource("4_eabcn")]
 position = Vector2(993, 643)
@@ -48,7 +49,7 @@ collision_layer = 2
 light_mask = 2
 visibility_layer = 2
 position = Vector2(1377, 524)
-scale = Vector2(0.952772, -0.0469426)
+scale = Vector2(1.56425, -0.0477121)
 collision_mask = 1
 
 [node name="TileMap" type="TileMap" parent="."]

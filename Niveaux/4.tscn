@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmqxrvjydbfcl"]
+
+[ext_resource type="Texture2D" uid="uid://x3yyyquc416r" path="res://images/FinDePartie.jpg" id="1_bhshy"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_p8ho6"]
+
+[node name="4" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+scale = Vector2(1159.28, -643.399)
+mesh = SubResource("QuadMesh_p8ho6")
+texture = ExtResource("1_bhshy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
