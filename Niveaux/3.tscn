@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bvbrfiiq22c2t"]
 
 [ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="1_qqe2x"]
-[ext_resource type="PackedScene" uid="uid://d0xp0b32ug36k" path="res://porte_avion.tscn" id="2_nn1qe"]
-[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://boule.tscn" id="3_rs8ph"]
-[ext_resource type="PackedScene" uid="uid://bs8n25ryymio3" path="res://unlocker_slime.tscn" id="4_s4eo2"]
-[ext_resource type="PackedScene" uid="uid://ckcrx4dewjm4h" path="res://moving_platform.tscn" id="5_h51sr"]
-[ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://porte.tscn" id="6_m12b4"]
+[ext_resource type="PackedScene" uid="uid://d0xp0b32ug36k" path="res://Objets/porte_avion.tscn" id="2_nn1qe"]
+[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://Personnage/boule.tscn" id="3_rs8ph"]
+[ext_resource type="PackedScene" uid="uid://bs8n25ryymio3" path="res://Objets/unlocker_slime.tscn" id="4_s4eo2"]
+[ext_resource type="PackedScene" uid="uid://ckcrx4dewjm4h" path="res://Plateformes/moving_platform.tscn" id="5_h51sr"]
+[ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://Objets/porte.tscn" id="6_m12b4"]
 
 [node name="Node2D" type="Node2D"]
 
