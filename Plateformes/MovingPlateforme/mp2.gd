@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var offset = Vector2(0, -400)
-@export var duration = 5.0
+@export var offset = Vector2(-1200,0)
+@export var duration = 8.0
 
 func _ready():
 	start_tween()

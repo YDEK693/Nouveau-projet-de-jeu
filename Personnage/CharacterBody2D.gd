@@ -31,7 +31,8 @@ func _ready():
 		self.set_script(new_script)
 
 func addTennisTransformation() : 
-	DEPLOQUER.append(State.TENNIS)
+	if State.TENNIS not in DEPLOQUER:
+		DEPLOQUER.append(State.TENNIS)
 	$AnimatedSpriteBoule.play("tennis")
 	current_state = State.TENNIS
 func _physics_process(delta):

@@ -17,7 +17,7 @@ signal tennis
 signal default
 signal sticky 
 
-var DEPLOQUER = [State.DEFAULT, State.TENNIS]
+var DEPLOQUER = [State.DEFAULT, State.TENNIS,State.STICKY]
 var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150, State.TENNIS: 300.0}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
 
@@ -26,7 +26,8 @@ func _ready():
 	$AnimatedSpriteBoule.play("default")
 
 func addStickyTransformation() : 
-	DEPLOQUER.append(State.STICKY)
+	if State.STICKY not in DEPLOQUER:
+		DEPLOQUER.append(State.STICKY)
 	$AnimatedSpriteBoule.play("sticky")
 	current_state = State.STICKY
 func _physics_process(delta):
@@ -41,6 +42,7 @@ func _physics_process(delta):
 	#changer de transformation
 	if Input.is_action_just_pressed("Transformation"):
 		current_state = DEPLOQUER[(current_state + 1) % len(DEPLOQUER)]
+		print(current_state)
 		if current_state == State.STICKY:
 			$CollisionBoule.shape.radius = 42.11
 			$AnimatedSpriteBoule.play("sticky")
