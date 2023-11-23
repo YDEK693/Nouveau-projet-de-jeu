@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw1y6t7mjigwr"]
+[gd_scene load_steps=8 format=3 uid="uid://cday2x17vo745"]
 
-[ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://porte.tscn" id="1_s6kpk"]
-[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://boule.tscn" id="2_y0tq0"]
+[ext_resource type="PackedScene" path="res://porte.tscn" id="1_s6kpk"]
+[ext_resource type="PackedScene" uid="uid://dcy2h2lyrckgj" path="res://boule.tscn" id="2_y0tq0"]
 [ext_resource type="PackedScene" uid="uid://cxoc05oqpljr1" path="res://caisse.tscn" id="3_s1nt7"]
 [ext_resource type="PackedScene" uid="uid://bbtqt7r8px3ev" path="res://button.tscn" id="4_adeuk"]
 [ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://plateforme.tscn" id="5_5486p"]
-[ext_resource type="PackedScene" uid="uid://cb0647x40xbsd" path="res://transparant.tscn" id="6_2kob0"]
+[ext_resource type="PackedScene" uid="uid://d10xj5fjfqd6w" path="res://transparant.tscn" id="6_2kob0"]
 [ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="7_1edf0"]
 
 [node name="Node2D" type="Node2D"]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # This represents the player's inertia.
-const push_force = 30.0
+const push_force = 20.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sens = 1 
@@ -17,8 +17,9 @@ var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150, State.TENNIS: 300.0}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
 
 var current_state : State = State.DEFAULT
+
 func _ready():
-	pass
+	$AnimatedSpriteBoule.play("default")
 
 func _physics_process(delta):
 	var SPEED = SPEEDDIC[current_state]
@@ -43,18 +44,22 @@ func _physics_process(delta):
 			#$AnimatedSpriteBoule.play("sticky")
 		elif current_state == State.DEFAULT:
 			$CollisionBoule.shape.radius = 42.11
-			#$AnimatedSpriteBoule.play("default")
+			$AnimatedSpriteBoule.play("default")
 		elif current_state == State.TENNIS:
 			$CollisionBoule.shape.radius = 21.05
-			#$AnimatedSpriteBoule.play("default")
+			$AnimatedSpriteBoule.play("tennis")
 	#push caisse
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() !=null:
+
+		if c.get_collider() != null :
+			if c.get_collider().is_in_group("pic"):
+				var current_scene_file = get_tree().current_scene.scene_file_path
+				get_tree().change_scene_to_file(current_scene_file)
 			if c.get_collider().name == "UnlockerTennis":
 				if State.TENNIS not in DEPLOQUER:
 					DEPLOQUER.append(State.TENNIS)
-					print(len(DEPLOQUER))
+				$AnimatedSpriteBoule.play("tennis")
 			if c.get_collider() is AnimatableBody2D:
 				if c.get_collider().position.x > 490:
 					sens = -1 
@@ -62,6 +67,8 @@ func _physics_process(delta):
 					sens = 1
 			if c.get_collider()is RigidBody2D:
 				c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+			
+		
 	#deplacement
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -86,8 +93,6 @@ func _physics_process(delta):
 
 	else:	
 		velocity.y += gravity * delta	
-	#moving plateforme
-	
 	move_and_slide()
 	
 # if needed for bouncing of walls or ceilings

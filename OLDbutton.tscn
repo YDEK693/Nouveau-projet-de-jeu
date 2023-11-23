@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmgy0mi3ypisr"]
+[gd_scene load_steps=8 format=3 uid="uid://6qe6bp4pnb4i"]
 
 [ext_resource type="Texture2D" uid="uid://bs0tsnnsadkt1" path="res://images/Pressed.png" id="1_04d7n"]
 [ext_resource type="Script" path="res://button.gd" id="1_gdf1a"]
@@ -33,7 +33,7 @@ size = Vector2(58, 7)
 a = Vector2(-84, 7)
 b = Vector2(-26, 7)
 
-[node name="Button" type="StaticBody2D"]
+[node name="Button2" type="StaticBody2D"]
 script = ExtResource("1_gdf1a")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

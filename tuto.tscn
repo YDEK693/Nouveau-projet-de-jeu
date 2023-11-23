@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://djtbt4h2m834"]
+
+[ext_resource type="PackedScene" uid="uid://btxhdegj5rcdi" path="res://level.tscn" id="1_ucqgt"]
+[ext_resource type="PackedScene" uid="uid://drsny5pgyhjci" path="res://plateforme.tscn" id="2_76jqu"]
+[ext_resource type="PackedScene" uid="uid://bbtqt7r8px3ev" path="res://button.tscn" id="3_nidrj"]
+[ext_resource type="Script" path="res://ccaisse.gd" id="4_qegb3"]
+[ext_resource type="Texture2D" uid="uid://cttyo2fb0mm7q" path="res://images/caisse.png" id="5_6c83n"]
+[ext_resource type="Script" path="res://transparant.gd" id="6_mtw3f"]
+[ext_resource type="Script" path="res://defaultBall.gd" id="7_jt3hi"]
+[ext_resource type="Texture2D" uid="uid://c0l6fgeoyyej3" path="res://images/boule.png" id="8_0epng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjtt5"]
+size = Vector2(92.25, 98.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqu2q"]
+size = Vector2(328, 132)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8dfqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cpf1"]
+radius = 42.107
+
+[node name="Tuto" type="Node2D"]
+position = Vector2(-20, -9)
+
+[node name="MeshInstance2D" parent="." instance=ExtResource("1_ucqgt")]
+
+[node name="Plateforme" parent="." instance=ExtResource("2_76jqu")]
+position = Vector2(203, -5)
+
+[node name="Button" parent="." instance=ExtResource("3_nidrj")]
+position = Vector2(553, 470)
+
+[node name="Caisse" type="RigidBody2D" parent="." groups=["Object", "Poussable"]]
+position = Vector2(-150, 49)
+mass = 4.22
+max_contacts_reported = 1
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("4_qegb3")
+
+[node name="SpriteCaisse" type="Sprite2D" parent="Caisse"]
+position = Vector2(553, 615)
+scale = Vector2(1.33333, 1.80517)
+texture = ExtResource("5_6c83n")
+
+[node name="CollisionCaisse" type="CollisionShape2D" parent="Caisse"]
+position = Vector2(353, 372.75)
+shape = SubResource("RectangleShape2D_xjtt5")
+
+[node name="transparant" type="StaticBody2D" parent="."]
+position = Vector2(1215, 94)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("6_mtw3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="transparant"]
+position = Vector2(32, -56)
+shape = SubResource("RectangleShape2D_fqu2q")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="transparant"]
+position = Vector2(27.5, -49.75)
+scale = Vector2(333, 135.5)
+mesh = SubResource("BoxMesh_8dfqt")
+
+[node name="Boule" type="CharacterBody2D" parent="." groups=["Object"]]
+position = Vector2(546, 613)
+script = ExtResource("7_jt3hi")
+
+[node name="CollisionBoule" type="CollisionShape2D" parent="Boule"]
+position = Vector2(-184, -200)
+shape = SubResource("CircleShape2D_2cpf1")
+
+[node name="SpriteBoule" type="Sprite2D" parent="Boule"]
+position = Vector2(-69, -19)
+scale = Vector2(0.983507, 1.1034)
+texture = ExtResource("8_0epng")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1123, -98)
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="buttonOffPushed" from="Button" to="transparant" method="_on_button_button_off_pushed"]
+[connection signal="buttonPushed" from="Button" to="transparant" method="_on_button_button_pushed"]

@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkc8ad4bwwgqx"]
+[gd_scene load_steps=5 format=3 uid="uid://bnhdha7ibefao"]
 
-[ext_resource type="Texture2D" uid="uid://cfgcyp8na8kbt" path="res://images/TransfoTennis.png" id="1_ko28l"]
+[ext_resource type="Texture2D" path="res://images/TransfoTennis.png" id="1_ko28l"]
 [ext_resource type="Script" path="res://unlocker_tennis.gd" id="1_mvr3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ia7r2"]
@@ -10,6 +10,7 @@ size = Vector2(17.5424, 17.6264)
 
 [node name="UnlockerTennis" type="RigidBody2D"]
 position = Vector2(-32, 37)
+mass = 40.47
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_mvr3p")
@@ -20,7 +21,8 @@ scale = Vector2(2.94696, 3.12376)
 shape = SubResource("RectangleShape2D_ia7r2")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-scale = Vector2(-59.1665, -55.19)
+rotation = -3.14159
+scale = Vector2(59.1665, 55.19)
 mesh = SubResource("QuadMesh_ag6qu")
 texture = ExtResource("1_ko28l")
 
