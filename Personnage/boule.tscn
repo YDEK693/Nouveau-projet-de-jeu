@@ -1,10 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8twaku4q50jx"]
+[gd_scene load_steps=7 format=3 uid="uid://b8twaku4q50jx"]
 
 [ext_resource type="Script" path="res://Personnage/CharacterBody2D.gd" id="1_x4eke"]
 [ext_resource type="Texture2D" uid="uid://c0l6fgeoyyej3" path="res://images/boule.png" id="2_psy5e"]
+[ext_resource type="Texture2D" uid="uid://uatj5sv8f030" path="res://images/Sticky.png" id="3_na13o"]
+[ext_resource type="Texture2D" uid="uid://cnjrgpwgyi86e" path="res://images/Tennis.png" id="4_xnuph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2cpf1"]
 radius = 42.107
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8fvy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_psy5e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_na13o")
+}],
+"loop": true,
+"name": &"sticky",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xnuph")
+}],
+"loop": true,
+"name": &"tennis",
+"speed": 5.0
+}]
 
 [node name="Boule" type="CharacterBody2D" groups=["Object"]]
 safe_margin = 0.001
@@ -14,9 +43,8 @@ script = ExtResource("1_x4eke")
 scale = Vector2(1.0328, 0.979136)
 shape = SubResource("CircleShape2D_2cpf1")
 
-[node name="SpriteClassique" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-scale = Vector2(0.30299, 0.282038)
-texture = ExtResource("2_psy5e")
-
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSpriteBoule" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8fvy2")
+animation = &"sticky"

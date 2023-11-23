@@ -8,29 +8,25 @@ var sens = 1
 # Création d'une énumération pour les états
 enum State {
 	DEFAULT = 0,
-	STICKY = 2,
 	TENNIS = 1,
+	STICKY = 2,
+	
 }
 
-var DEPLOQUER = [State.DEFAULT, State.TENNIS]
+var DEPLOQUER = [State.DEFAULT]
 var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150, State.TENNIS: 300.0}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
 
 var current_state : State = State.DEFAULT
 func _ready():
-	pass
+	$AnimatedSpriteBoule.play("default")
 
 func _physics_process(delta):
 	var SPEED = SPEEDDIC[current_state]
 	var JUMP_VELOCITY = JUMPDIC[current_state]
-	#gauche droite jump
-	
-	#balle de tennis
-#	if(velocity.y>0 && is_on_floor()):
-#		velocity.y += JUMP_VELOCITY*2
 
-	move_and_slide()
-	#restart level à definir la touche
+
+	#restart level
 	if Input.is_action_just_pressed("Reset"):
 		var current_scene_file = get_tree().current_scene.scene_file_path
 		get_tree().change_scene_to_file(current_scene_file)
@@ -43,20 +39,26 @@ func _physics_process(delta):
 			#$AnimatedSpriteBoule.play("sticky")
 		elif current_state == State.DEFAULT:
 			$CollisionBoule.shape.radius = 42.11
-			#$AnimatedSpriteBoule.play("default")
+			$AnimatedSpriteBoule.play("default")
 		elif current_state == State.TENNIS:
 			$CollisionBoule.shape.radius = 21.05
-			#$AnimatedSpriteBoule.play("default")
+			$AnimatedSpriteBoule.play("tennis")
 	#push caisse
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() is AnimatableBody2D:
-			if c.get_collider().position.x > 490:
-				sens = -1 
-			if c.get_collider().position.x < 10:
-				sens = 1
-		if c.get_collider()is RigidBody2D:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+		if c.get_collider() != null :
+			print(c.get_collider().name)
+			if c.get_collider().name == "UnlockerTennis":
+				if State.TENNIS not in DEPLOQUER:
+					DEPLOQUER.append(State.TENNIS)
+				$AnimatedSpriteBoule.play("tennis")
+			if c.get_collider() is AnimatableBody2D:
+				if c.get_collider().position.x > 490:
+					sens = -1 
+				if c.get_collider().position.x < 10:
+					sens = 1
+			if c.get_collider()is RigidBody2D:
+				c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	#deplacement
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -68,12 +70,6 @@ func _physics_process(delta):
 
 	#moving plateforme
 	if current_state == State.STICKY:
-#		if(is_on_ceiling()):
-#			velocity.y = 0
-#			velocity.x = 400*sens;
-#		if(is_on_wall()):
-#			velocity.y = 0
-#			velocity.x = 500*sens;
 		if(is_on_ceiling()||is_on_wall()):
 			velocity.x = 200*sens;
 		else:
@@ -81,7 +77,7 @@ func _physics_process(delta):
 
 	else:	
 		velocity.y += gravity * delta	
-
+	move_and_slide()
 	
 # if needed for bouncing of walls or ceilings
 #var was_on_wall := false
