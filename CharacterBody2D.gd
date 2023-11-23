@@ -12,6 +12,9 @@ enum State {
 	TENNIS = 1,
 }
 
+signal tennis
+signal default
+
 var DEPLOQUER = [State.DEFAULT, State.TENNIS]
 var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150, State.TENNIS: 300.0}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
@@ -41,11 +44,14 @@ func _physics_process(delta):
 		if current_state == State.STICKY:
 			$CollisionBoule.shape.radius = 42.11
 			#$AnimatedSpriteBoule.play("sticky")
+			emit_signal("tennis")
 		elif current_state == State.DEFAULT:
 			$CollisionBoule.shape.radius = 42.11
 			#$AnimatedSpriteBoule.play("default")
+			emit_signal("tennis")
 		elif current_state == State.TENNIS:
 			$CollisionBoule.shape.radius = 21.05
+			emit_signal("tennis")
 			#$AnimatedSpriteBoule.play("default")
 	#push caisse
 	for i in get_slide_collision_count():

@@ -1,13 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://blbuhewkrnnjy"]
+[gd_scene load_steps=13 format=3 uid="uid://jm0xwgo10uue"]
 
 [ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="1_lt70d"]
-[ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://boule.tscn" id="2_876oc"]
+[ext_resource type="PackedScene" uid="uid://dcy2h2lyrckgj" path="res://boule.tscn" id="2_876oc"]
 [ext_resource type="PackedScene" uid="uid://bbtqt7r8px3ev" path="res://button.tscn" id="3_axgfx"]
 [ext_resource type="PackedScene" uid="uid://cxoc05oqpljr1" path="res://caisse.tscn" id="4_eoo2e"]
-[ext_resource type="PackedScene" uid="uid://cb0647x40xbsd" path="res://transparant.tscn" id="6_mhyx5"]
-[ext_resource type="PackedScene" uid="uid://dkc8ad4bwwgqx" path="res://unlocker_tennis.tscn" id="7_q7qlu"]
+[ext_resource type="PackedScene" uid="uid://d10xj5fjfqd6w" path="res://transparant.tscn" id="6_mhyx5"]
+[ext_resource type="PackedScene" uid="uid://bnhdha7ibefao" path="res://unlocker_tennis.tscn" id="7_q7qlu"]
 [ext_resource type="PackedScene" uid="uid://ckcrx4dewjm4h" path="res://moving_platform.tscn" id="8_a6q4p"]
-[ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://porte.tscn" id="8_ispri"]
+[ext_resource type="PackedScene" path="res://porte.tscn" id="8_ispri"]
+[ext_resource type="Script" path="res://redzone.gd" id="9_3ldos"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qvdi"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ign4q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmd5o"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,6 +54,21 @@ position = Vector2(3784, 352)
 [node name="MovingPlatform" parent="." instance=ExtResource("8_a6q4p")]
 position = Vector2(1610, 485)
 scale = Vector2(1.85652, 0.635862)
+
+[node name="redzone" type="StaticBody2D" parent="."]
+position = Vector2(1063, 517)
+script = ExtResource("9_3ldos")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="redzone"]
+shape = SubResource("RectangleShape2D_4qvdi")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="redzone"]
+position = Vector2(-1.90735e-06, 4.76837e-07)
+scale = Vector2(20, 10)
+mesh = SubResource("CylinderMesh_ign4q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="redzone"]
+sprite_frames = SubResource("SpriteFrames_vmd5o")
 
 [connection signal="buttonOffPushed" from="Button" to="transparant" method="_on_button_button_off_pushed"]
 [connection signal="buttonPushed" from="Button" to="transparant" method="_on_button_button_pushed"]
