@@ -13,7 +13,11 @@ enum State {
 	
 }
 
-var DEPLOQUER = [State.DEFAULT]
+signal tennis
+signal default
+signal sticky 
+
+var DEPLOQUER = [State.DEFAULT, State.TENNIS]
 var SPEEDDIC =  {State.DEFAULT : 300.0, State.STICKY: 150, State.TENNIS: 300.0}
 var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
 
@@ -21,6 +25,8 @@ var current_state : State = State.DEFAULT
 func _ready():
 	$AnimatedSpriteBoule.play("default")
 
+func saute() : 
+	print("hello")
 func _physics_process(delta):
 	var SPEED = SPEEDDIC[current_state]
 	var JUMP_VELOCITY = JUMPDIC[current_state]
@@ -32,22 +38,23 @@ func _physics_process(delta):
 		get_tree().change_scene_to_file(current_scene_file)
 	#changer de transformation
 	if Input.is_action_just_pressed("Transformation"):
-		print(current_state)
 		current_state = DEPLOQUER[(current_state + 1) % len(DEPLOQUER)]
 		if current_state == State.STICKY:
 			$CollisionBoule.shape.radius = 42.11
-			#$AnimatedSpriteBoule.play("sticky")
+			$AnimatedSpriteBoule.play("sticky")
+			emit_signal("sticky")
 		elif current_state == State.DEFAULT:
 			$CollisionBoule.shape.radius = 42.11
 			$AnimatedSpriteBoule.play("default")
+			emit_signal("default")
 		elif current_state == State.TENNIS:
 			$CollisionBoule.shape.radius = 21.05
 			$AnimatedSpriteBoule.play("tennis")
+			emit_signal("tennis")
 	#push caisse
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() != null :
-			print(c.get_collider().name)
 			if c.get_collider().name == "UnlockerTennis":
 				if State.TENNIS not in DEPLOQUER:
 					DEPLOQUER.append(State.TENNIS)
@@ -82,3 +89,4 @@ func _physics_process(delta):
 # if needed for bouncing of walls or ceilings
 #var was_on_wall := false
 #var was_on_ceiling
+

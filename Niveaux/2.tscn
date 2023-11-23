@@ -57,4 +57,3 @@ scale = Vector2(3.34752, 2.58205)
 [connection signal="buttonOffPushed" from="Button" to="transparant" method="_on_button_button_off_pushed"]
 [connection signal="buttonPushed" from="Button" to="transparant" method="_on_button_button_pushed"]
 [connection signal="buttonPushed" from="Button" to="UnlockerTennis" method="_on_button_button_pushed"]
-[connection signal="body_entered" from="UnlockerTennis" to="UnlockerTennis" method="_on_body_entered"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvbrfiiq22c2t"]
+[gd_scene load_steps=9 format=3 uid="uid://bvbrfiiq22c2t"]
 
 [ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="1_qqe2x"]
 [ext_resource type="PackedScene" uid="uid://d0xp0b32ug36k" path="res://Objets/porte_avion.tscn" id="2_nn1qe"]
+[ext_resource type="Script" path="res://Script/bloquerrouge.gd" id="3_a1pln"]
 [ext_resource type="PackedScene" uid="uid://b8twaku4q50jx" path="res://Personnage/boule.tscn" id="3_rs8ph"]
+[ext_resource type="Script" path="res://Script/bloquerjaune.gd" id="4_a2rlv"]
 [ext_resource type="PackedScene" uid="uid://bs8n25ryymio3" path="res://Objets/unlocker_slime.tscn" id="4_s4eo2"]
 [ext_resource type="PackedScene" uid="uid://ckcrx4dewjm4h" path="res://Plateformes/moving_platform.tscn" id="5_h51sr"]
 [ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://Objets/porte.tscn" id="6_m12b4"]
@@ -25,17 +27,20 @@ layer_1/tile_data = PackedInt32Array()
 [node name="PorteAvion" parent="." instance=ExtResource("2_nn1qe")]
 position = Vector2(288, -152)
 scale = Vector2(1.68108, 2.00738)
+script = ExtResource("3_a1pln")
 
 [node name="PorteAvion2" parent="." instance=ExtResource("2_nn1qe")]
 modulate = Color(0.647059, 0.690196, 0.027451, 1)
 position = Vector2(602, -130)
 rotation = 1.57147
 scale = Vector2(0.768856, 2.62427)
+script = ExtResource("4_a2rlv")
 
 [node name="PorteAvion3" parent="." instance=ExtResource("2_nn1qe")]
 position = Vector2(830, -127)
 rotation = 1.56999
 scale = Vector2(0.759049, 2.65227)
+script = ExtResource("3_a1pln")
 
 [node name="Boule" parent="." instance=ExtResource("3_rs8ph")]
 position = Vector2(186, -44)
@@ -57,6 +62,7 @@ modulate = Color(0.647059, 0.690196, 0.027451, 1)
 position = Vector2(-17, -677)
 rotation = 1.55477
 scale = Vector2(1.30342, 2.43758)
+script = ExtResource("4_a2rlv")
 
 [node name="MovingPlatform3" parent="." instance=ExtResource("5_h51sr")]
 position = Vector2(329, -808)
@@ -68,3 +74,20 @@ position = Vector2(178, -1053)
 position = Vector2(-250, -1124)
 rotation = 1.5692
 scale = Vector2(1.48359, -1.90222)
+script = ExtResource("3_a1pln")
+
+[connection signal="default" from="Boule" to="PorteAvion" method="_on_boule_default"]
+[connection signal="default" from="Boule" to="PorteAvion2" method="_on_boule_default"]
+[connection signal="default" from="Boule" to="PorteAvion3" method="_on_boule_default"]
+[connection signal="default" from="Boule" to="PorteAvion4" method="_on_boule_default"]
+[connection signal="default" from="Boule" to="PorteAvion5" method="_on_boule_default"]
+[connection signal="sticky" from="Boule" to="PorteAvion" method="_on_boule_sticky"]
+[connection signal="sticky" from="Boule" to="PorteAvion2" method="_on_boule_sticky"]
+[connection signal="sticky" from="Boule" to="PorteAvion3" method="_on_boule_sticky"]
+[connection signal="sticky" from="Boule" to="PorteAvion4" method="_on_boule_sticky"]
+[connection signal="sticky" from="Boule" to="PorteAvion5" method="_on_boule_sticky"]
+[connection signal="tennis" from="Boule" to="PorteAvion" method="_on_boule_tennis"]
+[connection signal="tennis" from="Boule" to="PorteAvion2" method="_on_boule_tennis"]
+[connection signal="tennis" from="Boule" to="PorteAvion3" method="_on_boule_tennis"]
+[connection signal="tennis" from="Boule" to="PorteAvion4" method="_on_boule_tennis"]
+[connection signal="tennis" from="Boule" to="PorteAvion5" method="_on_boule_tennis"]
