@@ -65,24 +65,23 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is AnimatableBody2D:
-			if c.get_collider().position.x > 490:
+			if c.get_collider().position.x > 1290:
 				sens = -1 
 			if c.get_collider().position.x < 10:
 				sens = 1
 		if c.get_collider()is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+	
 	#deplacement
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	velocity.x = direction * SPEED
+	
 	#moving plateforme
 	if current_state == State.STICKY:
-		if(is_on_ceiling()||is_on_wall()):
+		if(is_on_ceiling()):
 			velocity.x = 200*sens;
 		else:
 			velocity.y += gravity * delta

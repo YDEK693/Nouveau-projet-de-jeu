@@ -12,6 +12,6 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	if body.is_in_group("Object"):
+	if body.is_in_group("Character"):
 		var current_scene_file = get_tree().current_scene.scene_file_path
 		get_tree().change_scene_to_file(current_scene_file)

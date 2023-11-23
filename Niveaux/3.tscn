@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvbrfiiq22c2t"]
+[gd_scene load_steps=10 format=3 uid="uid://bnedmepkhnyob"]
 
 [ext_resource type="TileSet" uid="uid://bwhq0etnr86mf" path="res://Tuiles/Tuiles.tres" id="1_qqe2x"]
 [ext_resource type="PackedScene" uid="uid://d0xp0b32ug36k" path="res://Objets/porte_avion.tscn" id="2_nn1qe"]
@@ -8,11 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8n25ryymio3" path="res://Objets/unlocker_slime.tscn" id="4_s4eo2"]
 [ext_resource type="PackedScene" uid="uid://ckcrx4dewjm4h" path="res://Plateformes/MovingPlateforme/moving_platform.tscn" id="5_h51sr"]
 [ext_resource type="PackedScene" uid="uid://q5kjvmfe841m" path="res://Objets/porte.tscn" id="6_m12b4"]
-[ext_resource type="Script" path="res://Plateformes/MovingPlateforme/mp1.gd" id="7_0s0pc"]
-[ext_resource type="Script" path="res://Plateformes/MovingPlateforme/mp2.gd" id="7_4rg5f"]
-[ext_resource type="Script" path="res://Plateformes/MovingPlateforme/mp3.gd" id="9_6pbxc"]
 [ext_resource type="PackedScene" uid="uid://dl4ns8lhyt7ao" path="res://Script/killzone.tscn" id="9_qucgk"]
-[ext_resource type="Script" path="res://Plateformes/MovingPlateforme/mp4.gd" id="10_cuftg"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -47,12 +43,17 @@ rotation = 1.56999
 scale = Vector2(0.759049, 2.65227)
 script = ExtResource("3_a1pln")
 
+[node name="MovingPlatform" parent="." instance=ExtResource("5_h51sr")]
+position = Vector2(1710, -179)
+offset = Vector2(0, -400)
+
 [node name="Boule" parent="." instance=ExtResource("3_rs8ph")]
-position = Vector2(65, -52)
+position = Vector2(1460, -239)
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("5_h51sr")]
-position = Vector2(1483, -576)
-script = ExtResource("7_4rg5f")
+position = Vector2(265, -584)
+offset = Vector2(1300, 0)
+duration = 13.0
 
 [node name="Porte" parent="." instance=ExtResource("6_m12b4")]
 position = Vector2(1623, -1599)
@@ -66,11 +67,11 @@ script = ExtResource("4_a2rlv")
 
 [node name="MovingPlatform3" parent="." instance=ExtResource("5_h51sr")]
 position = Vector2(329, -808)
-script = ExtResource("9_6pbxc")
+offset = Vector2(0, -500)
 
 [node name="MovingPlatform4" parent="." instance=ExtResource("5_h51sr")]
 position = Vector2(178, -1053)
-script = ExtResource("10_cuftg")
+offset = Vector2(-450, 0)
 
 [node name="PorteAvion5" parent="." instance=ExtResource("2_nn1qe")]
 position = Vector2(-250, -1124)
@@ -78,18 +79,13 @@ rotation = 1.5692
 scale = Vector2(1.48359, -1.90222)
 script = ExtResource("3_a1pln")
 
-[node name="UnlockerTennis" parent="." instance=ExtResource("4_s4eo2")]
-position = Vector2(1550, -230)
-mass = 29.73
-
 [node name="killzone" parent="." instance=ExtResource("9_qucgk")]
 visible = false
 position = Vector2(517, -8)
 scale = Vector2(4.22257, 1)
 
-[node name="MovingPlatform" parent="." instance=ExtResource("5_h51sr")]
-position = Vector2(1710, -179)
-script = ExtResource("7_0s0pc")
+[node name="UnlockerSlime" parent="." instance=ExtResource("4_s4eo2")]
+position = Vector2(1566, -226)
 
 [connection signal="default" from="Boule" to="PorteAvion" method="_on_boule_default"]
 [connection signal="default" from="Boule" to="PorteAvion2" method="_on_boule_default"]
@@ -106,4 +102,4 @@ script = ExtResource("7_0s0pc")
 [connection signal="tennis" from="Boule" to="PorteAvion3" method="_on_boule_tennis"]
 [connection signal="tennis" from="Boule" to="PorteAvion4" method="_on_boule_tennis"]
 [connection signal="tennis" from="Boule" to="PorteAvion5" method="_on_boule_tennis"]
-[connection signal="body_entered" from="UnlockerTennis" to="UnlockerTennis" method="_on_body_entered"]
+[connection signal="body_entered" from="UnlockerSlime" to="UnlockerSlime" method="_on_body_entered"]
