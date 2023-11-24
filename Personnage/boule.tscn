@@ -37,7 +37,7 @@ animations = [{
 
 [node name="Boule" type="CharacterBody2D" groups=["Character", "Object"]]
 floor_block_on_wall = false
-safe_margin = 0.001
+safe_margin = 0.04
 script = ExtResource("1_x4eke")
 
 [node name="CollisionBoule" type="CollisionShape2D" parent="."]

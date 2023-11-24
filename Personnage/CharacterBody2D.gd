@@ -23,7 +23,6 @@ var JUMPDIC = {State.DEFAULT : -400.0, State.STICKY: -200, State.TENNIS: -600.0}
 
 var current_state : State = State.DEFAULT
 func _ready():
-	print($CollisionBoule.shape.radius)
 	$AnimatedSpriteBoule.play("default")
 	var current_scene_file = get_tree().current_scene.scene_file_path
 	var lvl3 = "res://Niveaux/3.tscn"
@@ -37,6 +36,7 @@ func addTennisTransformation() :
 	$AnimatedSpriteBoule.play("tennis")
 	$AnimatedSpriteBoule.scale.x = 0.150
 	$AnimatedSpriteBoule.scale.y = 0.15
+	$CollisionBoule.shape.radius = 21.05
 	current_state = State.TENNIS
 func _physics_process(delta):
 	var SPEED = SPEEDDIC[current_state]

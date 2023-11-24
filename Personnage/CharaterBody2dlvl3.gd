@@ -42,7 +42,6 @@ func _physics_process(delta):
 	#changer de transformation
 	if Input.is_action_just_pressed("Transformation"):
 		current_state = DEPLOQUER[(current_state + 1) % len(DEPLOQUER)]
-		print(current_state)
 		if current_state == State.STICKY:
 			$CollisionBoule.shape.radius = 42.11
 			$AnimatedSpriteBoule.scale.x = 0.279
@@ -81,8 +80,15 @@ func _physics_process(delta):
 	
 	#moving plateforme
 	if current_state == State.STICKY:
-		if(is_on_ceiling()):
+#		if(is_on_ceiling()):
+#			velocity.y = 0
+#			velocity.x = 400*sens;
+#		if(is_on_wall()):
+#			velocity.y = 0
+#			velocity.x = 500*sens;
+		if(is_on_ceiling()||is_on_wall()):
 			velocity.x = 200*sens;
+			velocity.y = 0
 		else:
 			velocity.y += gravity * delta
 
