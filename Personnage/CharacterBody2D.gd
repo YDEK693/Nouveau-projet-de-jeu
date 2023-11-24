@@ -35,6 +35,8 @@ func addTennisTransformation() :
 	if State.TENNIS not in DEPLOQUER:
 		DEPLOQUER.append(State.TENNIS)
 	$AnimatedSpriteBoule.play("tennis")
+	$AnimatedSpriteBoule.scale.x = 0.150
+	$AnimatedSpriteBoule.scale.y = 0.15
 	current_state = State.TENNIS
 func _physics_process(delta):
 	var SPEED = SPEEDDIC[current_state]

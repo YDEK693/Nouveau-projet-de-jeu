@@ -48,7 +48,7 @@ position = Vector2(1710, -179)
 offset = Vector2(0, -400)
 
 [node name="Boule" parent="." instance=ExtResource("3_rs8ph")]
-position = Vector2(1460, -239)
+position = Vector2(109, -63)
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("5_h51sr")]
 position = Vector2(265, -584)
